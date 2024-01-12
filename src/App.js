@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { GoogleLogin } from '@react-oauth/google';
 
 function App() {
+  const responseMessage = (e)=>{
+    console.log('response--',e)
+  }
+
+  const errorMessage = (e)=>{
+    console.log('on-error--',e)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Testing react single sign-in test</p>
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage}/>
     </div>
   );
 }
